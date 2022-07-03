@@ -1,15 +1,7 @@
 
 @import url("reset.css");
 
-@font-face {
-    font-family: "Mars News";
-    src: url("../../fonts/Mars\ News\ 400.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "Movement Regular";
-    src: url("../../fonts/Movement\ Regular\ 400.ttf") format("opentype");
-}
+@import url('http://fonts.cdnfonts.com/css/common-pixel');
 
 :root {
     --bg-color: rgb(24, 24, 24);
@@ -22,8 +14,54 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Common Pixel', sans-serif;
+}
+
+.points-a-monsters {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 70%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.score-count {
+    width: 300px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+    font-family: 'Common Pixel', sans-serif;                                             
+    font-size: 2.2rem;
+    color: rgb(217, 217, 218);
+}
+
+.monsters-spawn {
+    width: 1000px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 4%;
+}
+
+.monsters-spawn img {
+    margin: 10px;
 }
 
 #space-ship {
     position: absolute;
+    width: 120px;
+}
+
+.shoot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
 }

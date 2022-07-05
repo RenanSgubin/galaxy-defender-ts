@@ -18,6 +18,10 @@ let keyPress: string;
 
 let gameStart: boolean;
 let frame: number = 0;
+
+//Tiros
+let bottomDistanceShoot: number = 0;
+
 const player = document.getElementById("space-ship") as HTMLImageElement;
 
 const screenWidth: number = window.innerWidth;
@@ -50,12 +54,30 @@ function keyUp() {
 }
 
 function shoot() {
-  const shootDiv = document.createElement('div');
-  shootDiv.classList.add('shoot');
-  document.body.appendChild(shootDiv);
+  for(let i = 0; i < 1; i++) {
+    const shootDiv = document.createElement('div');
+    shootDiv.classList.add('shoot');
+    document.body.appendChild(shootDiv);
 
-  shootDiv.style.top = player.getBoundingClientRect().top + "px";
-  shootDiv.style.left = player.getBoundingClientRect().left + "px";
+    //Tiro surgir em cima da nave
+    shootDiv.style.top = player.getBoundingClientRect().top + "px";
+    shootDiv.style.left = player.getBoundingClientRect().left + "px";
+
+    let shipTopDistance = player.getBoundingClientRect().top;
+
+    function moveShoot() {
+      bottomDistanceShoot = bottomDistanceShoot - 5;
+      shootDiv.style.top = (shipTopDistance + bottomDistanceShoot)+"px";
+
+      if(document.getElementsByClassName("shoot")[0].getBoundingClientRect().top <= 0) {
+        document.getElementsByClassName("shoot")[0].parentNode.removeChild(document.getElementsByClassName("shoot")[0]);
+        bottomDistanceShoot = 0;
+      }
+    }
+
+    const moveShootInterval = setInterval(moveShoot, 50);
+  }
+
 }
 
 function playerControl() {
